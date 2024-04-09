@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { FaBars, FaX } from 'react-icons/fa6';
 import LoginPopup from '../authentication/LoginPopup';
+import { scrollToSection } from '@/Hooks/ScrollToSection';
 
 const navigation = [
-  { name: 'Personal', href: '#' },
-  { name: 'Business', href: '#' },
-  { name: 'Electronic Banking', href: '#' },
-  { name: 'Lending', href: '#' },
-  { name: 'About Us', href: '#' },
+  { name: 'Personal', scroll: 'innovate' },
+  { name: 'Contact', scroll: 'contact' },
+  { name: 'Testimonies', scroll: 'testimonies' },
+  { name: 'Lending', scroll: 'lend' },
+  { name: 'About Us', scroll: 'about' },
 ];
 
 export default function Example() {
@@ -19,10 +20,10 @@ export default function Example() {
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <div className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <div className=" font-bold text-xl text-blue-700">Futon MFB</div>
-            </a>
+            </div>
           </div>
           <div className="flex lg:hidden gap-3">
             <LoginPopup />
@@ -37,9 +38,9 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+              <div key={item.name} onClick={() => scrollToSection(item.scroll)} className="text-sm font-semibold leading-6 text-gray-900">
                 {item.name}
-              </a>
+              </div>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -71,13 +72,16 @@ export default function Example() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <div
                       key={item.name}
-                      href={item.href}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        scrollToSection(item.scroll);
+                      }}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-blue-400"
                     >
                       {item.name}
-                    </a>
+                    </div>
                   ))}
                 </div>
 

@@ -11,13 +11,23 @@ const Home = () => {
  return (
   < >
    <Hero />
-   <Innovate />
-   <About />
+   <div id="innovate">
+    <Innovate />
+   </div>
+   <div id="about">
+    <About />
+   </div>
    <LogoStack />
    <Services />
-   <Calculate />
-   <Slides />
-   <Contact />
+   <div id="lend">
+    <Calculate />
+   </div>
+   <div id="testimonies">
+    <Slides />
+   </div>
+   <div id="contact">
+    <Contact />
+   </div>
    <Footer />
   </>
  );
