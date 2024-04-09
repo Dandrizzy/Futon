@@ -14,6 +14,7 @@ import { useEditApi } from '@/Hooks/Edit/useEditApi';
 import { useEdit } from '@/Hooks/Edit/useEdit';
 
 const TransferPopUp = ({ className = ' w-full', userId }) => {
+ const [pin, setPin] = useState(null);
  const [OTP, setOTP] = useState(0);
  const [required, setRequired] = useState(false);
  const [valid, setValid] = useState(false);
@@ -34,20 +35,23 @@ const TransferPopUp = ({ className = ' w-full', userId }) => {
 
 
  const onSubmit = data => {
+  console.log(data);
   if (!data || data === undefined) return;
   const amount = bal - data?.amount;
 
   if (+OTP === otp.at(0).otp || data?.amount < 10000) {
    if (+data.pin === +acn?.pin) {
-    create({ ...data, userId, author: 'milan', type: 'transfer', status: 'pending' }, {
+    create({ ...data, userId, author: 'futon', type: 'transfer', status: 'pending' }, {
      onSuccess: () => {
       edit({ name: acn?.name, checking: amount, account: acn?.account, admin: acn?.admin, email: acn?.email, routing: acn?.routing, savings: acn?.savings, userId });
       setValid(false);
       setRequired(false);
-
+      setPin(null);
       reset();
      }
     });
+   } else {
+    setPin('Wrong pin');
    }
   }
  };
@@ -127,9 +131,8 @@ const TransferPopUp = ({ className = ' w-full', userId }) => {
         Routing Number
        </Text>
        <TextField.Input
-        type='text'
+        type='number'
         required
-        minLength={3}
         id='bankName'
         placeholder="Enter billing address"
        />
@@ -141,11 +144,11 @@ const TransferPopUp = ({ className = ' w-full', userId }) => {
        <TextField.Input
         type='number'
         required
-        minLength={10}
+        minLength={6}
         {...register('account', {
          required: 'This field is required',
          minLength: {
-          value: 10,
+          value: 6,
           message: 'Should be 10 digits'
          }
         })} id='account'
@@ -196,7 +199,13 @@ const TransferPopUp = ({ className = ' w-full', userId }) => {
         placeholder="Enter pin "
        />
        {errors?.pin?.message && <div className="pt-2">
-        <span className=' text-rose-800 bg-rose-200 text-xs py-2 px-4 rounded-full'>{errors?.pin?.message}</span>
+        <span className=' text-rose-800 bg-rose-200 text-xs py-1 px-4 rounded-full'>{errors?.pin?.message}</span>
+       </div>}
+       {pin && <div className='flex justify-start items-start mt-2 '>
+        <span className='text-xs py-1 px-4 rounded-full text-rose-800 bg-rose-200'>
+         {pin}
+
+        </span>
        </div>}
 
       </label>}
@@ -247,7 +256,7 @@ const TransferPopUp = ({ className = ' w-full', userId }) => {
         Cancel
        </Button>
       </Dialog.Close>
-      <Button color='green' type='button' disabled={acn?.restricted || isEditing} onClick={handleSubmit(onClick)}>
+      <Button color='green' type='submit' disabled={acn?.restricted || isEditing} onClick={handleSubmit(onClick)}>
        {isCreating ? <SpinnerMini /> : 'Next'}
       </Button>
      </Flex>}
