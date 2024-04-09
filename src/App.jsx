@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Spinner from "./ui/Spinner";
 import './index.css';
+import '@mantine/core/styles.css';
 import '@radix-ui/themes/styles.css';
 import Error from "./ui/Error";
 import DashboardLayout from "./layouts/DashboardLayout";

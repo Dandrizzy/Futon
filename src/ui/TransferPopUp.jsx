@@ -112,6 +112,30 @@ const TransferPopUp = ({ className = ' w-full', userId }) => {
       </label>
       <label>
        <Text as="div" size="2" mb="1" weight="bold">
+        Billing Address
+       </Text>
+       <TextField.Input
+        type='text'
+        required
+        minLength={3}
+        id='bankName'
+        placeholder="Enter billing address"
+       />
+      </label>
+      <label>
+       <Text as="div" size="2" mb="1" weight="bold">
+        Routing Number
+       </Text>
+       <TextField.Input
+        type='text'
+        required
+        minLength={3}
+        id='bankName'
+        placeholder="Enter billing address"
+       />
+      </label>
+      <label>
+       <Text as="div" size="2" mb="1" weight="bold">
         Account Number
        </Text>
        <TextField.Input

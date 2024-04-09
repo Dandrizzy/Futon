@@ -87,7 +87,7 @@ const AdminEdit = ({ transaction, children }) => {
          Date
         </Text>
         <TextField.Input
-         type="datetime-local"
+         type="datetime"
          defaultValue={x}
          required
          {...register('created_at')} id='created_at'

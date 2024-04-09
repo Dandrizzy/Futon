@@ -1,68 +1,58 @@
-import { Card, Strong, Text } from '@radix-ui/themes';
-import { FaCheckCircle, FaArrowCircleDown } from "react-icons/fa";
-import { FaClock, FaSquarePhone } from "react-icons/fa6";
-const Innovate = () => {
+import { FaCloudArrowUp, FaFingerprint, FaServer } from 'react-icons/fa6';
+
+const features = [
+ {
+  name: 'Instant Banking.',
+  description:
+   'Seamless and rapid processing of financial transactions, allowing customers to access and manage their funds in real-time. ',
+  icon: FaCloudArrowUp,
+ },
+ {
+  name: 'Security.',
+  description: 'Our robust security measures and protocols, we demonstrate our commitment to safeguarding customer information and providing a secure and reliable banking experience in an increasingly digital world.',
+  icon: FaFingerprint,
+ },
+ {
+  name: 'Automated Transactions.',
+  description: 'Implement automated transaction processing for transfers, payments, and deposits to minimize manual intervention, reduce processing times, and ensure seamless fund transfers.',
+  icon: FaServer,
+ },
+];
+
+export default function Innovate() {
  return (
-  <div className='flex flex-col gap-4 items-center justify-center sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:place-items-center'>
-   <div className=" font-bold text-2xl lg:text-4xl uppercase py-4 sm:col-span-2 lg:col-span-4">How can we help you?</div>
-   <Card size="2" style={{ maxWidth: 400 }} className=' shadow-md drop-shadow-md'>
-
-    <FaCheckCircle className=' h-16 w-16 text-blue-500' />
-
-    <div className="py-8">
-     <Text as="p" size="4">
-      <Strong>Secure International Transaction</Strong>
-     </Text>
+  <div className="overflow-hidden bg-white py-24 sm:py-32">
+   <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+     <div className="lg:pr-8 lg:pt-4">
+      <div className="lg:max-w-lg">
+       <h2 className="text-base font-semibold leading-7 text-blue-600">Bank faster</h2>
+       <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">A better workflow</p>
+       <p className="mt-6 text-lg leading-8 text-gray-600">
+        Optimizing digital processes to enhance efficiency, accuracy, and customer satisfaction. Improved operational efficiency, enhanced customer experience, and sustained growth in the digital banking landscape.
+       </p>
+       <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+        {features.map((feature) => (
+         <div key={feature.name} className="relative pl-9">
+          <dt className="inline font-semibold text-gray-900">
+           <feature.icon className="absolute left-1 top-1 h-5 w-5 text-blue-600" aria-hidden="true" />
+           {feature.name}
+          </dt>{' '}
+          <dd className="inline">{feature.description}</dd>
+         </div>
+        ))}
+       </dl>
+      </div>
+     </div>
+     <img
+      src="/innovate.jpg"
+      alt="Product screenshot"
+      className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
+      width={2432}
+      height={1442}
+     />
     </div>
-    <Text as="p" size="4">
-     Ensure the protection of sensitive financial information and mitigate the risk of fraud across borders.
-    </Text>
-   </Card>
-
-   <Card size="2" style={{ maxWidth: 400 }} className=' shadow-md drop-shadow-md'>
-
-    <FaSquarePhone className=' h-16 w-16 text-blue-500' />
-
-    <div className="py-8">
-     <Text as="p" size="4">
-      <Strong>24/7 Support from the Expert Team</Strong>
-     </Text>
-    </div>
-    <Text as="p" size="4">
-     Our dedicated expert team is available around the clock to provide personalized support, guidance, and solutions to meet your needs, whenever you need them.
-    </Text>
-   </Card>
-
-   <Card size="2" style={{ maxWidth: 400 }} className=' shadow-md drop-shadow-md'>
-
-    <FaArrowCircleDown className=' h-16 w-16 text-blue-500' />
-
-    <div className="py-8">
-     <Text as="p" size="4">
-      <Strong>Lowest Processing Fee than Other Banks</Strong>
-     </Text>
-    </div>
-    <Text as="p" size="4">
-     Experience unparalleled value with our bank&apos;s commitment to providing the lowest processing fees in the industry, helping you achieve your financial goals with minimal expenses.
-    </Text>
-   </Card>
-
-   <Card size="2" style={{ maxWidth: 400 }} className=' shadow-md drop-shadow-md'>
-
-    <FaClock className=' h-16 w-16 text-blue-500' />
-
-    <div className="py-8">
-     <Text as="p" size="4">
-      <Strong>Less Time in any Loans Approval</Strong>
-     </Text>
-    </div>
-    <Text as="p" size="4">
-     Experience faster loan approvals with our streamlined processes, reducing wait times and allowing you to access funds when you need them most.
-    </Text>
-   </Card>
-
+   </div>
   </div>
  );
-};
-
-export default Innovate;
+}
