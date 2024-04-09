@@ -25,7 +25,6 @@ export default function Admin() {
   if (isLoading || isLoggingOff) return <Spinner />;
 
   const allowedUser = users.users.filter(user => user.user_metadata.owner === 'futon');
-  console.log(allowedUser);
   return (
     <div className=" bg-blue-50 py-8">
       <header className="absolute inset-x-0 top-0 z-50">

@@ -35,7 +35,6 @@ const TransferPopUp = ({ className = ' w-full', userId }) => {
 
 
  const onSubmit = data => {
-  console.log(data);
   if (!data || data === undefined) return;
   const amount = bal - data?.amount;
 
