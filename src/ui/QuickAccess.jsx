@@ -30,11 +30,11 @@ const QuickAccess = () => {
    </div>
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
     <FaPaypal className=" size-10" />
-    <p className=" text-xs font-bold pt-2">Pay with PayPal</p>
+    <p className=" text-xs font-bold pt-2">PayPal</p>
    </div>
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
     <FaBitcoin className=" size-10" />
-    <p className=" text-xs font-bold pt-2">Pay with Bitcoin</p>
+    <p className=" text-xs font-bold pt-2">Bitcoin</p>
    </div>
 
   </div>
