@@ -162,10 +162,10 @@ export default function UserHero() {
               <DepositPopUp />
             </div>
             <div className=" col-span-2 mt-4">
-              <Tabs.Root defaultValue="account">
+              <Tabs.Root defaultValue="transaction">
                 <Tabs.List>
-                  <Tabs.Trigger value="account">Quick Access</Tabs.Trigger>
                   <Tabs.Trigger value="transaction">Transactions</Tabs.Trigger>
+                  <Tabs.Trigger value="account">Quick Access</Tabs.Trigger>
 
                 </Tabs.List>
 
