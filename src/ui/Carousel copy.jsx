@@ -29,7 +29,7 @@ const HorizontalScrollCarousel = () => {
 
  return (
   <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
-   <div className="sticky top-0 flex h-screen items-center overflow-auto">
+   <div className="sticky top-0 flex min-h-screen items-center overflow-auto">
     <motion.div style={{ x }} className="flex gap-4">
      {cards.map((card) => {
       return <Card card={card} key={card.id} />;
