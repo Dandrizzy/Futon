@@ -1,44 +1,42 @@
-import { FcIdea, FcIphone, FcPuzzle, FcReading, FcShipped, FcSimCardChip, FcStackOfPhotos, FcVideoProjector, FcWiFiLogo } from "react-icons/fc";
+import { FaBitcoin, FaHandHoldingHeart, FaMoneyBillTransfer, FaMoneyCheck, FaPaypal, FaTicket, FaWallet } from "react-icons/fa6";
+import { SiZelle } from "react-icons/si";
 
 const QuickAccess = () => {
  return (
   <div className=" text-slate-500 grid grid-cols-4 gap-2 ">
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
-    <FcSimCardChip className=" size-10" />
-    <p className=" text-xs font-bold">Credit Card</p>
+    <FaMoneyBillTransfer className=" size-10" />
+    <p className=" text-xs font-bold">Transfer Money</p>
    </div>
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
-    <FcIphone className=" size-10" />
-    <p className=" text-xs font-bold">Airtime</p>
+    <SiZelle className=" size-10" />
+    <p className=" text-xs font-bold">Send Money with Zelle</p>
    </div>
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
-    <FcWiFiLogo className=" size-10" />
-    <p className=" text-xs font-bold">Internet</p>
+    <FaMoneyCheck className=" size-10" />
+    <p className=" text-xs font-bold">Deposit Check</p>
    </div>
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
-    <FcPuzzle className=" size-10" />
-    <p className=" text-xs font-bold">Betting</p>
+    <FaHandHoldingHeart className=" size-10" />
+    <p className=" text-xs font-bold">Donate</p>
    </div>
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
-    <FcIdea className=" size-10" />
-    <p className=" text-xs font-bold">Electricity</p>
+    <FaTicket className=" size-10" />
+    <p className=" text-xs font-bold">Pay Bills</p>
    </div>
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
-    <FcStackOfPhotos className=" size-10" />
-    <p className=" text-xs font-bold">Gift Cards</p>
+    <FaWallet className=" size-10" />
+    <p className=" text-xs font-bold">Wallet</p>
    </div>
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
-    <FcShipped className=" size-10" />
-    <p className=" text-xs font-bold">Transport</p>
+    <FaPaypal className=" size-10" />
+    <p className=" text-xs font-bold">Pay with PayPal</p>
    </div>
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
-    <FcReading className=" size-10" />
-    <p className=" text-xs font-bold">Education</p>
+    <FaBitcoin className=" size-10" />
+    <p className=" text-xs font-bold">Pay with Bitcoin</p>
    </div>
-   <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
-    <FcVideoProjector className=" size-10" />
-    <p className=" text-xs font-bold">Cable</p>
-   </div>
+
   </div>
  );
 };

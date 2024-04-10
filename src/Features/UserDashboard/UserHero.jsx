@@ -166,16 +166,11 @@ export default function UserHero() {
                 <Tabs.List>
                   <Tabs.Trigger value="transaction">Transactions</Tabs.Trigger>
                   <Tabs.Trigger value="account">Quick Access</Tabs.Trigger>
-
                 </Tabs.List>
-
                 <Box pt="3">
                   <Tabs.Content value="account">
-
                     <QuickAccess />
-
                   </Tabs.Content>
-
                   <Tabs.Content value="transaction">
                     <TransactionList userTransactions={userTransactions} acc={currentUser} />
                   </Tabs.Content>
