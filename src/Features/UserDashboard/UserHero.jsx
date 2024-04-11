@@ -172,7 +172,7 @@ export default function UserHero() {
                 </Tabs.List>
                 <Box pt="3">
                   <Tabs.Content value="account">
-                    <QuickAccess />
+                    <QuickAccess userId={user?.id} />
                   </Tabs.Content>
                   <Tabs.Content value="transaction">
                     <TransactionList userTransactions={userTransactions} acc={currentUser} />

@@ -1,13 +1,11 @@
-import { FaBitcoin, FaHandHoldingHeart, FaMoneyBillTransfer, FaMoneyCheck, FaPaypal, FaTicket, FaWallet } from "react-icons/fa6";
+import UserTransfer from "@/Features/UserDashboard/UserTrasfer";
+import { FaBitcoin, FaHandHoldingHeart, FaMoneyCheck, FaPaypal, FaTicket, FaWallet } from "react-icons/fa6";
 import { SiZelle } from "react-icons/si";
 
-const QuickAccess = () => {
+const QuickAccess = ({ userId }) => {
  return (
-  <div className=" text-slate-500 grid grid-cols-4 gap-2 ">
-   <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
-    <FaMoneyBillTransfer className=" size-10" />
-    <p className=" text-xs font-bold pt-2">Transfer Money</p>
-   </div>
+  <div className=" text-center text-slate-500 grid grid-cols-4 gap-2 ">
+   <UserTransfer userId={userId} />
    <div className=" bg-slate-100 p-4 rounded-sm grid place-items-center gap-2">
     <SiZelle className=" text-purple-700 size-10" />
     <p className=" text-xs font-bold pt-2 text-center ">Send Money with Zelle</p>
