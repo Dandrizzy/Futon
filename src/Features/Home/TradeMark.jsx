@@ -4,7 +4,7 @@ const TradeMark = () => {
  return (
   <div className=" p-8 bg-blue-50">
    <p className=" text-blue-600 font-bold text-2xl">Futon MFB</p>
-   <div className=" text-blue-500 flex items-center gap-2 py-2">
+   <div className=" text-blue-500 flex items-center flex-wrap gap-2 py-2">
     <p className=" border-r border-black pr-2 underline"><FaLock className=" text-black" /></p>
     <p className=" border-r border-black pr-2 underline">Privacy</p>
     <p className=" border-r border-black pr-2 underline">Security</p>
