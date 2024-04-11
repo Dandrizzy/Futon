@@ -7,6 +7,7 @@ import { Slides } from '@/Features/Home/Slides';
 import Contact from '@/Features/Home/Contact';
 import Footer from '@/Features/Home/Footer';
 import LogoStack from '@/Features/Home/LogoStack';
+import TradeMark from '@/Features/Home/TradeMark';
 const Home = () => {
  return (
   < >
@@ -29,6 +30,7 @@ const Home = () => {
     <Contact />
    </div>
    <Footer />
+   <TradeMark />
   </>
  );
 };
