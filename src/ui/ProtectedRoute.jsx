@@ -4,6 +4,7 @@ import Spinner from "./Spinner";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import { array } from "@/Data/array";
 
 const FullPage = styled.div`
   height: 100vh;
@@ -41,7 +42,10 @@ function ProtectedRoute({ children }) {
 
 
   // 4. If there IS a user, render the app
-  if (user?.email === 'admin@futonmfb.com') return navigate('/admin');
+  const stringToFind = user?.email;
+  const found = array.map(str => str.toLowerCase()).includes(stringToFind.toLowerCase());
+
+  if (found) return navigate('/admin');
   if (isAuthenticated) return children;
 }
 

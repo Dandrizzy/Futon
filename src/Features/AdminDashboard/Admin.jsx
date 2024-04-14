@@ -9,6 +9,8 @@ import Spinner from '@/ui/Spinner';
 import { useNavigate } from 'react-router-dom';
 import { useLogout } from '../authentication/useLogout';
 import OTPPopup from '../authentication/Admin/OTPPopup';
+import { useUser } from '../authentication/useUser';
+import { people } from '@/Data/people';
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -22,9 +24,11 @@ export default function Admin() {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { data: users, isLoading } = useUsers();
-  if (isLoading || isLoggingOff) return <Spinner />;
+  const { user: { email }, isLoading: isFetching } = useUser();
+  if (isLoading || isLoggingOff || isFetching) return <Spinner />;
+  const x = people.find(detail => detail.email === email);
 
-  const allowedUser = users.users.filter(user => user.user_metadata.owner === 'futon');
+  const allowedUser = users.users.filter(user => user.user_metadata.owner === x?.name);
   return (
     <div className=" bg-blue-50 py-8">
       <header className="absolute inset-x-0 top-0 z-50">
@@ -137,13 +141,13 @@ export default function Admin() {
                     </Table.ColumnHeaderCell>
                   </Table.Row>
                 </Table.Header>
-                {allowedUser?.map(user => <Table.Body key={user.id}>
+                {allowedUser?.map(user => <Table.Body key={user?.id}>
                   <Table.Row>
                     <Table.RowHeaderCell>
-                      {user.email}
+                      {user?.email}
                     </Table.RowHeaderCell>
                     <Table.Cell className=' text-right '>
-                      <Button variant='soft' onClick={() => navigate(`/admin/${user.id}`)}><EyeIcon />View</Button>
+                      <Button variant='soft' onClick={() => navigate(`/admin/${user?.id}`)}><EyeIcon />View</Button>
                     </Table.Cell>
                   </Table.Row>
 

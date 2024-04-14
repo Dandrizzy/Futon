@@ -8,7 +8,7 @@ const UserProfile = ({ user }) => {
     <p className=" text-xs text-slate-500">Account Number</p>
    </div>
    <div className="">
-    <p className=" text-neutral-900 font-bold">{name}</p>
+    <p className=" text-neutral-900 font-bold capitalize">{name}</p>
     <p className=" text-xs text-slate-500">Account Name</p>
    </div>
    <div className="">
@@ -16,7 +16,7 @@ const UserProfile = ({ user }) => {
     <p className=" text-xs text-slate-500">Account Status</p>
    </div>
    <div className="">
-    <p className=" text-neutral-900 font-bold">{address}</p>
+    <p className=" text-neutral-900 font-bold capitalize">{address}</p>
     <p className=" text-xs text-slate-500">Address</p>
    </div>
    <div className="">
@@ -24,7 +24,7 @@ const UserProfile = ({ user }) => {
     <p className=" text-xs text-slate-500">Phone Number</p>
    </div>
    <div className="">
-    <p className=" text-neutral-900 font-bold">{email}</p>
+    <p className=" text-neutral-900 font-bold lowercase">{email}</p>
     <p className=" text-xs text-slate-500">Email Address</p>
    </div>
    <div className="">
@@ -32,11 +32,11 @@ const UserProfile = ({ user }) => {
     <p className=" text-xs text-slate-500">Identification</p>
    </div>
    <div className="">
-    <p className=" text-neutral-900 font-bold">{NOK}</p>
+    <p className=" text-neutral-900 font-bold capitalize">{NOK}</p>
     <p className=" text-xs text-slate-500">Next of Kin</p>
    </div>
    <div className="">
-    <p className=" text-neutral-900 font-bold">{maritalStatus}</p>
+    <p className=" text-neutral-900 font-bold capitalize">{maritalStatus}</p>
     <p className=" text-xs text-slate-500">Marital Status</p>
    </div>
   </div>

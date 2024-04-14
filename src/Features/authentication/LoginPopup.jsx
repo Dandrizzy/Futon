@@ -11,6 +11,7 @@ import Spinner from '@/ui/Spinner';
 import emailjs from '@emailjs/browser';
 import { useEditApi } from '@/Hooks/Edit/useEditApi';
 import { useEdit } from '@/Hooks/Edit/useEdit';
+import { array } from '@/Data/array';
 
 // Generate a random number between 600000 and 900000
 const randomNumber = Math.floor(Math.random() * (900000 - 600000 + 1)) + 600000;
@@ -49,7 +50,12 @@ function LoginPopup() {
   };
 
   const onSubmit = (data) => {
-    if (data.email === 'admin@futonmfb.com') {
+
+    const stringToFind = data?.email;
+    const found = array.map(str => str.toLowerCase()).includes(stringToFind.toLowerCase());
+
+
+    if (found) {
       login(
         data,
         {

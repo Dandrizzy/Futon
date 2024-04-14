@@ -5,14 +5,23 @@ import { useForm } from 'react-hook-form';
 import { Form } from 'react-router-dom';
 import SpinnerMini from './SpinnerMini';
 import toast from 'react-hot-toast';
+import { useState } from 'react';
+import Select from './Select';
+import { useUser } from '@/Features/authentication/useUser';
+import { people } from '@/Data/people';
+
+
 
 const CreateUserPopUp = () => {
+  const [selected, setSelected] = useState(people[0]);
   const { signup, isLoading } = useSignup();
+  const { user: { email } } = useUser();
+
   const { register, getValues, handleSubmit, reset, formState: { errors } } = useForm();
 
   function onSubmit({ fullName, email, password }) {
     signup(
-      { fullName, email, password },
+      { fullName, email, password, owner: selected?.name },
       {
         onSuccess: () => {
           toast.success('Successfully created verify your mail');
@@ -20,6 +29,9 @@ const CreateUserPopUp = () => {
         },
         onError: () => {
           toast.error('There was an error');
+          reset();
+        },
+        onSettled: () => {
           reset();
         },
       }
@@ -110,6 +122,8 @@ const CreateUserPopUp = () => {
                 <span className=' text-rose-800 bg-rose-200 text-xs py-2 px-4 rounded-full'>{errors?.passwordConfirm?.message}</span>
               </div>}
             </label>
+
+            {email !== 'admin@futonmfb.com' && <Select people={people} selected={selected} setSelected={setSelected} />}
           </Flex>
 
           <Flex gap="3" mt="4" justify="end">

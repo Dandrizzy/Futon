@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useUser } from "./useUser";
 import Spinner from "@/ui/Spinner";
+import { array } from "@/Data/array";
 
 const FullPage = styled.div`
   height: 100vh;
@@ -41,7 +42,10 @@ function AdminRoute({ children }) {
 
   // 4. If there IS a user, render the app
 
-  if (isAuthenticated && user?.email === 'admin@futonmfb.com') return children;
+  const stringToFind = user?.email;
+  const found = array.map(str => str.toLowerCase()).includes(stringToFind.toLowerCase());
+
+  if (isAuthenticated && found) return children;
 }
 
 export default AdminRoute;
